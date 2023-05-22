@@ -1,15 +1,6 @@
-class Pessoa
+module Pessoa
 
     attr_reader :nome, :sobrenome, :idade, :rg
-
-    # Método construtor da classe
-
-    def initialize(nome, sobrenome, idade, rg)
-        @nome = nome
-        @sobrenome = sobrenome
-        @idade = idade
-        @rg = rg
-    end
 
     # Métodos Getters
 
