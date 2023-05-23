@@ -1,91 +1,79 @@
-module Cadastro
+require_relative 'dados'
+class Cadastro
+    include CadastrarAluno
+    include CadastrarProfessor
+    include CadastrarTurma
+    include CadastrarDisciplina
 
-    def cadastrar_turma
+    def menuCadastro 
+        puts "------------"
+        puts "MENU DE CADASTRO"
+        puts "------------"
 
-        puts "Insira o nome da turma:"
-        nomeTurma = gets.chomp.to_s
-
-        puts "Insira o ID da turma:"
-        idTurma = gets.chomp.to_i
-
-        puts "Insira o professor responsável:"
-        professor = gets.chomp.to_i
-
-        puts "Insira a capacidade maxima da turma:"
-        capacidadeMaxima = gets.chomp.to_i
-
-        turma = Turma.new(nomeTurma, idTurma, professor, capacidade_maxima)
+        puts "-------------------------------"
+        puts "1 - Cadastrar Aluno"
+        puts "2 - Cadastrar Turma"
+        puts "3 - Cadastrar Disciplina"
+        puts "4 - Cadastrar Professor"
+        puts "5 - SAIR"
+        puts "-------------------------------"
+        op = gets.chomp.to_i 
     end
 
-
-    def cadastrar_disciplina
-
-        puts "Insira o nome da turma:"
-        nomeDisciplina = gets.chomp.to_s
-
-        puts "Insira CH da disciplina:"
-        chDisciplina = gets.chomp.to_i
-
-        puts "Insira data de inicio:"
-        dataInicio = gets.chomp.to_s
-
-        puts "Insira data de termino:"
-        dataTermino = gets.chomp.to_s
-
-        disciplina = Disciplina.new(nomeDisciplina, chDisciplina, data_inicio, data_termino)
-        
+    def cadastro
+        opcao = menuCadastro
+        while opcao != 5
+            if opcao >= 1 && opcao <=5
+                case opcao
+                when 1 
+                    cadastrar_aluno
+                when 2
+                    cadastrar_turma
+                when 3 
+                    cadastrar_disciplina
+                else
+                    cadastrar_professor
+                end
+            else
+                puts "OPÇAO NÃO DISPONÍVEL"
+            end
+            opcao = menuCadastro
+        end
     end
 
-    def cadastrar_aluno
+    def menuGerenciamento
+        puts "------------"
+        puts "MENU DE GERENCIAMENTO"
+        puts "------------"
 
-        puts "Insira o nome do aluno:"
-        nomeAluno = gets.chomp.to_s
-
-        puts "Insira o sobrenome do aluno:"
-        sobrenomeAluno = gets.chomp.to_s
-
-        puts "Insira a idade do aluno:"
-        idadeAluno = gets.chomp.to_i
-
-        puts "Insira o rg do aluno:"
-        rgAluno = gets.chomp.to_i
-
-        puts "Insira o numero de matricula do aluno:"
-        matricula = gets.chomp.to_i
-
-        puts "Insira a data de nascimento do aluno:"
-        dataNascimento = gets.chomp.to_s
-
-
-        aluno = Aluno.new(nomeAluno, sobrenomeAluno, idadeAluno, rgAluno, matricula, dataNascimento)
-
+        puts "-------------------------------"
+        puts "1 - Listar Aluno"
+        puts "2 - Listar Turma"
+        puts "3 - Listar Disciplina"
+        puts "4 - Listar Professor"
+        puts "5 - SAIR"
+        puts "-------------------------------"
+        op = gets.chomp.to_i 
     end
-
-    def cadastrar_professor
-
-        puts "Insira o nome do professor:"
-        nomeProfessor = gets.chomp.to_s
-
-        puts "Insira o sobrenome do professor:"
-        sobrenomeProfessor = gets.chomp.to_s
-
-        puts "Insira a idade do professor:"
-        idadeProfessor = gets.chomp.to_i
-
-        puts "Insira o rg do professor:"
-        rgProfessor = gets.chomp.to_i
-
-        puts "Insira o salario do professor:"
-        salario = gets.chomp.to_f
-
-        puts "Insira a CH do professor:"
-        chProfessor = gets.chomp.to_i
-
-        puts "Insira o ID do professor:"
-        idadeProfessor = gets.chomp.to_i
-
-
-        professor = Professor.new(nomeProfessor, sobrenomeProfessor, idadeProfessor, rgProfessor, salario, chProfessor, idadeProfessor)
-
+    
+    def gerenciamento 
+        opcao = menuGerenciamento
+        while opcao != 5
+            if opcao >= 1 && opcao <=5
+                case opcao
+                when 1 
+                    puts "Nada a declarar"
+                when 2
+                    puts "Nada ainda"
+                when 3 
+                    puts "Nada ainda"
+                else
+                    puts "Nada ainda"
+                end
+            else
+                puts "OPÇAO NÃO DISPONÍVEL"
+            end
+            opcao = menuGerenciamento
+        end
     end
 end

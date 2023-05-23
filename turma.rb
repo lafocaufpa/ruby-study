@@ -1,4 +1,4 @@
-class turma
+class Turma
 
     attr_reader :nomeTurma, :id, :professor, :capacidade_maxima
 

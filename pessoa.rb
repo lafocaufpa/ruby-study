@@ -1,4 +1,4 @@
-module Pessoa
+class Pessoa
 
     attr_reader :nome, :sobrenome, :idade, :rg
 

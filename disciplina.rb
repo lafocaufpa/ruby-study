@@ -1,4 +1,4 @@
-class disciplina
+class Disciplina
 
     attr_reader :nome, :carga_horaria, :data_inicio, :data_termino
 

@@ -1,5 +1,5 @@
+require_relative 'pessoa'
 class Aluno < Pessoa
-    include Pessoa
     attr_reader :matricula, :dataNascimento
 
     def initialize(nome, sobrenome, idade, rg, matricula, dataNascimento)

@@ -1,5 +1,5 @@
+require_relative 'pessoa'
 class Professor < Pessoa
-    include Pessoa
     attr_reader :salario, :cargaHoraria, :idFuncionario
 
     def initialize(nome, sobrenome, idade, rg, salario, cargaHoraria, idFuncionario)
