@@ -56,9 +56,9 @@ class turma
         @id = id
     end
 
-    # Método para atualizar o professor da turma
-    def setProfessor=(professor)
-        @professor = professor
+    # Método para cadastrar/atualizar o professor da turma
+    def setProfessor(professor)
+        disciplina.associar_turma(self) 
     end
 
 end
