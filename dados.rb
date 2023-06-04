@@ -24,7 +24,9 @@ module CadastrarAluno
         dataNascimento = gets.chomp.to_s
 
 
-        aluno = Aluno.new(nomeAluno, sobrenomeAluno, idadeAluno, rgAluno, matricula, dataNascimento)
+        @aluno = Aluno.new(nomeAluno, sobrenomeAluno, idadeAluno, rgAluno, matricula, dataNascimento)
+
+        Aluno.alunosCadastrados(@aluno)
         
         puts "Aluno cadastrado com sucesso!"
     end
@@ -55,7 +57,9 @@ module CadastrarProfessor
         idadeProfessor = gets.chomp.to_i
 
 
-        professor = Professor.new(nomeProfessor, sobrenomeProfessor, idadeProfessor, rgProfessor, salario, chProfessor, idadeProfessor)
+        @professor = Professor.new(nomeProfessor, sobrenomeProfessor, idadeProfessor, rgProfessor, salario, chProfessor, idadeProfessor)
+
+        Professor.cadastrarProfessor(@professor)
 
         puts "Professor cadastrado com sucesso!"
     end
@@ -76,7 +80,9 @@ module CadastrarTurma
         puts "Insira a capacidade maxima da turma:"
         capacidadeMaxima = gets.chomp.to_i
 
-        turma = Turma.new(nomeTurma, idTurma, professor, capacidadeMaxima)
+        @turma = Turma.new(nomeTurma, idTurma, professor, capacidadeMaxima)
+
+        Turma.cadastraTurma(@turma)
 
         puts "Turma cadastrada com sucesso!"
     end
@@ -97,8 +103,11 @@ module CadastrarDisciplina
         puts "Insira data de termino:"
         dataTermino = gets.chomp.to_s
 
-        disciplina = Disciplina.new(nomeDisciplina, chDisciplina, dataInicio, dataTermino)
+        @disciplina = Disciplina.new(nomeDisciplina, chDisciplina, dataInicio, dataTermino)
         
+        Disciplina.cadastrarDisciplina(@disciplina)
+
         puts "Disciplina cadastrada com sucesso!"
+      
     end
 end

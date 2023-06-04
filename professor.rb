@@ -13,6 +13,22 @@ class Professor < Pessoa
       @turma = nil
     end
 
+    #Método para cadastrar os professores em um array
+    def self.cadastrarProfessor(professor) 
+        @professor ||= []
+        @professor << professor
+    end
+
+    #Método para listar todos os professores cadastrados no sistema
+    def self.listarProfessores
+        if @professor.nil? || @professor.empty?
+            puts "Nenhum professor cadastrada."
+        else
+            @professor.each do |p|
+                puts p.nome_completo
+            end
+        end
+    end 
     #Getter Methodturma
     def getSalario
         return @salario

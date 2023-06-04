@@ -9,9 +9,26 @@ class Aluno < Pessoa
       @rg = rg
       @matricula = matricula
       @dataNascimento = dataNascimento
-      @disciplina = nil
+      @disciplina = nil 
+    end
+    
+    #Array para guardar todos os alunos cadastrados no sistema 
+    def self.alunosCadastrados(aluno)
+        @aluno ||= []
+        @aluno << aluno
     end
 
+    
+    #Exibi todos os alunos cadastrados na escola
+    def self.listarAlunos
+        if @aluno.nil? || @aluno.empty?
+            puts "Nenhum aluno cadastrada."
+        else
+            @aluno.each do |al|
+                puts al.nome_completo
+            end
+        end
+    end
 
     #Getters Methods
     def getMatricula

@@ -13,6 +13,23 @@ class Disciplina
         @turma = nil
     end
 
+    #Método para armazenar as disciplinas em um array
+    def self.cadastrarDisciplina(disciplina)
+        @disciplina ||= []
+        @disciplina << disciplina
+    end
+
+    #Método para listar todas as Disciplinas cadastradas no sistema
+    def self.listarDisciplinas
+        if @disciplina.nil? || @disciplina.empty?
+            puts "Nenhum disciplina cadastrada."
+        else
+            @disciplina.each do |d|
+                puts d.nome
+            end
+        end
+    end
+
     # Método para associar disciplina a turma
     def associar_turma(turma)
         @turma = turma
@@ -22,6 +39,13 @@ class Disciplina
     def associar_aluno(aluno)
         @lista_alunos << aluno
         aluno.associar_disciplina(self) #Criar o método 'associar_disciplina' na classe aluno [@edinaldo_Henriques]
+    end
+
+    #Método para listar os alunos da Disciplina
+    def listarAlunos
+        @lista_alunos.each do |aluno|
+            puts "Nome: #{aluno.nome} #{aluno.sobrenome}"
+        end
     end
 
     # Métodos Getters

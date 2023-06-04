@@ -62,13 +62,13 @@ class Cadastro
             if opcao >= 1 && opcao <=5
                 case opcao
                 when 1 
-                    puts "Nada a declarar"
+                    Aluno.listarAlunos
                 when 2
-                    puts "Nada ainda"
+                    Turma.listarTurmas
                 when 3 
-                    puts "Nada ainda"
+                    Disciplina.listarDisciplinas
                 else
-                    puts "Nada ainda"
+                    Professor.listarProfessores
                 end
             else
                 puts "OPÇAO NÃO DISPONÍVEL"

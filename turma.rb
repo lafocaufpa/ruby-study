@@ -11,6 +11,23 @@ class Turma
         @lista_disciplinas = []
     end
 
+    #Método para armazenar todos as turmas cadastradas em um array
+    def self.cadastraTurma(turma)
+        @turma ||= []
+        @turma << turma
+    end
+
+    #Método para listar todas as turmas cadastradas no sistema
+    def self.listarTurmas
+        if @turma.nil? || @turma.empty?
+            puts "Nenhuma turma cadastrada."
+        else
+            @turma.each do |t|
+                puts t.getNomeTurma
+            end
+        end
+    end
+
     # Método para adicionar disciplina a lista de disciplina e associar a turma a uma disciplina
     def cadastrar_disciplina(disciplina)
         @lista_disciplinas << disciplina
