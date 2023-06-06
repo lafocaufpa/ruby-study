@@ -91,7 +91,7 @@ end
 module CadastrarDisciplina
     def cadastrar_disciplina
 
-        puts "Insira o nome da turma:"
+        puts "Insira o nome da Disciplina:"
         nomeDisciplina = gets.chomp.to_s
 
         puts "Insira CH da disciplina:"
@@ -103,7 +103,10 @@ module CadastrarDisciplina
         puts "Insira data de termino:"
         dataTermino = gets.chomp.to_s
 
-        @disciplina = Disciplina.new(nomeDisciplina, chDisciplina, dataInicio, dataTermino)
+        puts "Insira o ID da Disciplina: "
+        id = gets.chomp.to_i
+
+        @disciplina = Disciplina.new(nomeDisciplina, chDisciplina, dataInicio, dataTermino, id)
         
         Disciplina.cadastrarDisciplina(@disciplina)
 

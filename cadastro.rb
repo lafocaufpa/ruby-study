@@ -52,15 +52,18 @@ class Cadastro
         puts "3 - Listar Disciplina"
         puts "4 - Listar Professor"
         puts "5 - Editar Professor"
-        puts "6 - SAIR"
+        puts "6 - Excluir Professor"
+        puts "7 - Editar Disciplina"
+        puts "8 - Excluir Disciplina"
+        puts "9 - SAIR"
         puts "-------------------------------"
         op = gets.chomp.to_i 
     end
     
     def gerenciamento 
         opcao = menuGerenciamento
-        while opcao != 6
-            if opcao >= 1 && opcao <=6
+        while opcao != 9
+            if opcao >= 1 && opcao <=9
                 case opcao
                 when 1 
                     Aluno.listarAlunos
@@ -70,10 +73,14 @@ class Cadastro
                     Disciplina.listarDisciplinas
                 when 4
                     Professor.listarProfessores
+                when 5
+                    Professor.updateProfessor
+                when 6
+                    Professor.deleteProfessor
+                when 7
+                    Disciplina.updateDisciplina
                 else
-                    puts "Digite o ID do Professor que deseja atualizar"
-                    id = gets.chomp.to_i
-                    Professor.updateProfessor(id)
+                    Disciplina.deleteDisciplina
                 end
             else
                 puts "OPÇAO NÃO DISPONÍVEL"
