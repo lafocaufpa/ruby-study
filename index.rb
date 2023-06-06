@@ -16,7 +16,6 @@ def select
     opcao = menu
     while opcao != 3
         if opcao == 1
-            
             cadastro.cadastro
         elsif opcao == 2
             

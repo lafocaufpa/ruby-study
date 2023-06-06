@@ -54,10 +54,10 @@ module CadastrarProfessor
         chProfessor = gets.chomp.to_i
 
         puts "Insira o ID do professor:"
-        idadeProfessor = gets.chomp.to_i
+        idProfessor = gets.chomp.to_i
 
 
-        @professor = Professor.new(nomeProfessor, sobrenomeProfessor, idadeProfessor, rgProfessor, salario, chProfessor, idadeProfessor)
+        @professor = Professor.new(nomeProfessor, sobrenomeProfessor, idadeProfessor, rgProfessor, salario, chProfessor, idProfessor)
 
         Professor.cadastrarProfessor(@professor)
 
