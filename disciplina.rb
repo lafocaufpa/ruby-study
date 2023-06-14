@@ -10,9 +10,35 @@ class Disciplina
         @data_inicio = data_inicio
         @data_termino = data_termino
         @id = id
-        @lista_alunos = []
+        @lista_alunos ||= []
+        @lista_nota ||= []
         @turma = nil
     end
+    
+    #Array para guardar todos os alunos cadastrados no sistema 
+    def self.adicionarAlunoDisciplina(aluno)
+        @aluno ||= []
+        @aluno << aluno
+    end
+
+    #Array para guardar as notas
+    def self.adicionarNota(nota)
+        @nota ||= []
+        @nota << nota
+    end
+
+    #Exibi todos os alunos cadastrados na disciplina
+    def self.listarAlunos
+        if @aluno.nil? || @aluno.empty?
+            puts "Nenhum aluno cadastrada."
+        else
+            @aluno.each do |al|
+                puts al.nome_completo
+            end
+        end
+    end
+
+
 
     #Método para armazenar as disciplinas em um array
     def self.cadastrarDisciplina(disciplina)

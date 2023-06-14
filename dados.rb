@@ -2,8 +2,9 @@ require_relative 'professor'
 require_relative 'aluno'
 require_relative 'disciplina'
 require_relative 'turma'
+require_relative 'nota'
 module CadastrarAluno
-    def cadastrar_aluno
+    def adicionar_aluno_disciplina
 
         puts "Insira o nome do aluno:"
         nomeAluno = gets.chomp.to_s
@@ -26,9 +27,9 @@ module CadastrarAluno
 
         @aluno = Aluno.new(nomeAluno, sobrenomeAluno, idadeAluno, rgAluno, matricula, dataNascimento)
 
-        Aluno.alunosCadastrados(@aluno)
+        Aluno.adicionarAlunoDisciplina(@aluno)
         
-        puts "Aluno cadastrado com sucesso!"
+        puts "Aluno associado com sucesso!"
     end
 end
 
@@ -112,5 +113,24 @@ module CadastrarDisciplina
 
         puts "Disciplina cadastrada com sucesso!"
       
+    end
+end
+
+module NotaAluno 
+    def nota_aluno 
+        puts "Insira o ID da Disciplina: "
+        disciplina = gets.chomp.to_i
+
+        puts "Insira a nota do Aluno: "
+        nota = gets.chomp.to_f
+
+        puts "Insira a matrícula do Aluno: "
+        aluno = gets.chomp.to_i
+
+        @nota = Nota.new(disciplina, nota, aluno)
+
+        Nota.notaAluno(@nota)
+
+        puts "Nota inserida com sucesso!"
     end
 end

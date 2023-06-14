@@ -4,6 +4,7 @@ class Cadastro
     include CadastrarProfessor
     include CadastrarTurma
     include CadastrarDisciplina
+    include NotaAluno
 
     def menuCadastro 
         puts "------------"
@@ -15,15 +16,16 @@ class Cadastro
         puts "2 - Cadastrar Turma"
         puts "3 - Cadastrar Disciplina"
         puts "4 - Cadastrar Professor"
-        puts "5 - SAIR"
+        puts "5 - Adicionar nota para o Aluno"
+        puts "6 - SAIR"
         puts "-------------------------------"
         op = gets.chomp.to_i 
     end
 
     def cadastro
         opcao = menuCadastro
-        while opcao != 5
-            if opcao >= 1 && opcao <=5
+        while opcao != 6
+            if opcao >= 1 && opcao <=6
                 case opcao
                 when 1 
                     cadastrar_aluno
@@ -31,8 +33,10 @@ class Cadastro
                     cadastrar_turma
                 when 3 
                     cadastrar_disciplina
-                else
+                when 4
                     cadastrar_professor
+                else 
+                    nota_aluno
                 end
             else
                 puts "OPÇAO NÃO DISPONÍVEL"
@@ -55,15 +59,16 @@ class Cadastro
         puts "6 - Excluir Professor"
         puts "7 - Editar Disciplina"
         puts "8 - Excluir Disciplina"
-        puts "9 - SAIR"
+        puts "9 - Listar Nota dos alunos"
+        puts "10 - SAIR"
         puts "-------------------------------"
         op = gets.chomp.to_i 
     end
     
     def gerenciamento 
         opcao = menuGerenciamento
-        while opcao != 9
-            if opcao >= 1 && opcao <=9
+        while opcao != 10
+            if opcao >= 1 && opcao <=10
                 case opcao
                 when 1 
                     Aluno.listarAlunos
@@ -79,8 +84,10 @@ class Cadastro
                     Professor.deleteProfessor
                 when 7
                     Disciplina.updateDisciplina
-                else
+                when 8
                     Disciplina.deleteDisciplina
+                else
+                    Nota.listaNota
                 end
             else
                 puts "OPÇAO NÃO DISPONÍVEL"
